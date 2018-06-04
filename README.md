@@ -1,23 +1,26 @@
+FOR PRIVACY AND CODE PROTECTING REASONS THIS IS A SIMPLIFIED VERSION OF CHANGES AND NEW FEATURES
+
 TASK DATE: 07.11.2017 - FINISHED: 07.11.2017
+
+TASK LEVEL: (MEDIUM)  
 
 TASK SHORT DESCRIPTION: 1180 (Option to hide the 'Latest ...' section for the announcement tab on the front end. Add an enable button beneath current enable/disable toggle. (Text on top of this button: "Display latest content box at top of page:") Add a hover info box to the right side of the new button: "This box pulls in the latest 4 pieces of content from the rest of the page".)
 
 GITHUB REPOSITORY CODE: feature/task-1180-option-to-hide-latest-archives
 
-ORIGINAL WORK: https://github.com/BusinessBecause/network-site/tree/feature/task-1180-option-to-hide-latest-archives
-
 CHANGES
  
 	IN FILES: 
 	
-		\network-site\addons\default\modules\network_settings\language\english\network_settings_lang.php
+		network_settings_lang.php
 		
 			ADDED CODE: 
 			
 				$lang['display:latest:archives'] = 'Display latest archives box at top of the page';
 			
 			
-		\network-site\addons\default\modules\network_settings\details.php
+			
+		details.php
 		
 			ADDED CODE: 
 			
@@ -41,7 +44,10 @@ CHANGES
 				   $this->db->insert($this->db->dbprefix('settings'), $new_record);
 				}		
 
-		\network-site\addons\default\modules\network_settings\views\content\announcements.php
+				
+				
+				
+		announcements.php
 		
 			ADDED/CHANGED CODE:
 			
@@ -97,7 +103,10 @@ CHANGES
 					</table>
 				</div>
 				
-		\network-site\addons\default\modules\network_settings\views\content\announcements.php
+				
+				
+				
+		announcements.php
 		
 			ADDED CODE 1:
 
@@ -128,10 +137,11 @@ CHANGES
 					->set('enabled_announcement', Settings::get('announcement_toggle'))
 					->set('enabled_latest_archives', Settings::get('latest_archives_toggle'))
 					->set('description_latest_archives', Settings::get('latest_archives_toggle', 'description'))
+
+
 					
-		\network-site\addons\default\modules\network_settings\js\content.js
-		
-		
+		content.js
+
 			ADDED CODE:
 			
 				$('#latest_archives_toggle').on('click', function(){
@@ -144,8 +154,9 @@ CHANGES
 					});
 				});
 				
-		\network-site\addons\default\modules\news\views\view_announcements.php
-		
+				
+				
+		view_announcements.php
 		
 			ADDED/CHANGED CODE: 
 			
@@ -158,7 +169,8 @@ CHANGES
 					<?php if(count($top_stories) and Settings::get('latest_archives_toggle')) : ?>
 
 				
-		\network-site\system\cms\modules\settings\libraries\Settings.php
+				
+		Settings.php
 		
 			CHANGED CODE: 
 			
